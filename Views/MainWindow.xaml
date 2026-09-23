@@ -1,0 +1,70 @@
+<Window x:Class="TWEtaChecker.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TW 에타 체커"
+        Width="400"
+        SizeToContent="Height"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource OverlayWindowBackgroundBrush}"
+        UseLayoutRounding="True"
+        SnapsToDevicePixels="True"
+        FontFamily="Malgun Gothic">
+    <!-- 상태 카드 하나와 버튼 두 개. 최소화하면 트레이로 들어가고, 트레이 아이콘을 두 번 누르면 다시 나온다. -->
+    <StackPanel Margin="16,14,16,14">
+        <StackPanel Orientation="Horizontal" Margin="2,0,0,12">
+            <Border Background="{DynamicResource OverlayTabSelectedBrush}"
+                    BorderBrush="{DynamicResource OverlayTabSelectedBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="9"
+                    Padding="7,0,7,1"
+                    Height="18"
+                    VerticalAlignment="Center"
+                    Margin="0,0,8,0">
+                <TextBlock Text="1:1 대화" FontSize="11" FontWeight="SemiBold" Foreground="{DynamicResource OverlayTitleAccentTextBrush}" VerticalAlignment="Center"/>
+            </Border>
+            <TextBlock Text="에타 레벨 확인" FontSize="15" FontWeight="SemiBold" Foreground="{DynamicResource OverlayTitleAccentTextBrush}" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <Border Style="{StaticResource CardStyle}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="24"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="테일즈위버 폴더" Style="{StaticResource FieldLabelStyle}"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" x:Name="GameFolderText" Style="{StaticResource FieldValueStyle}"/>
+
+                <TextBlock Grid.Row="1" Text="1:1 대화 감시" Style="{StaticResource FieldLabelStyle}"/>
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Ellipse x:Name="WatchDot" Width="7" Height="7" Margin="0,1,6,0" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="WatchStatusText" Style="{StaticResource FieldValueStyle}"/>
+                </StackPanel>
+
+                <TextBlock Grid.Row="2" Text="에타 랭킹" Style="{StaticResource FieldLabelStyle}"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" x:Name="RankingStatusText" Style="{StaticResource FieldValueStyle}"/>
+            </Grid>
+        </Border>
+
+        <Grid Margin="0,12,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="8"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="테스트 팝업" Style="{StaticResource ActionButtonStyle}" Click="TestButton_Click"/>
+            <Button Grid.Column="2" Content="설정" Style="{StaticResource PrimaryButtonStyle}" Click="SettingsButton_Click"/>
+        </Grid>
+
+        <TextBlock Margin="4,10,0,0" FontSize="11" Foreground="{DynamicResource OverlayHintTextBrush}" TextWrapping="Wrap">
+            <Run Text="ⓘ" Foreground="{DynamicResource OverlayTitleAccentTextBrush}"/>
+            <Run Text=" 최소화하면 트레이로 들어갑니다. 트레이 아이콘을 두 번 누르면 다시 열립니다."/>
+        </TextBlock>
+    </StackPanel>
+</Window>
