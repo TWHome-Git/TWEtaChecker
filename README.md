@@ -1,4 +1,4 @@
-# TWEtaChecker
+# 테일즈 에타 알림 (TWEtaChecker)
 
 테일즈위버 1:1 대화 상대의 에타 레벨을 팝업으로 알려 주는 프로그램입니다.\
 TWChatOverlay의 1:1 대화 에타 기능만 분리했습니다.\

@@ -1,7 +1,7 @@
 <Window x:Class="TWEtaChecker.Views.SettingsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="TW 에타 체커 — 설정"
+        Title="TW 에타 알림 — 설정"
         Width="420"
         SizeToContent="Height"
         ResizeMode="NoResize"

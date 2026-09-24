@@ -14,12 +14,12 @@ using TWEtaChecker.Views;
 namespace TWEtaChecker
 {
     /// <summary>
-    /// TW 에타 체커 — 테일즈위버 1:1 대화(메신저) 로그를 지켜보다가 상대의 에타 레벨을 작은 팝업으로 알려 주는 프로그램.
+    /// TW 에타 알림 — 테일즈위버 1:1 대화(메신저) 로그를 지켜보다가 상대의 에타 레벨을 작은 팝업으로 알려 주는 프로그램.
     /// 상태 창(MainWindow)이 기본으로 보이고, 최소화하면 트레이로 들어간다. 게임 메모리는 읽지 않고 게임이 남기는 MsgerLog HTML 파일만 읽는다.
     /// </summary>
     public partial class App : Application
     {
-        private const string Caption = "TW 에타 체커";
+        private const string Caption = "TW 에타 알림";
 
         private static Mutex? _singleInstance;
         private TrayIconService? _tray;
@@ -44,7 +44,7 @@ namespace TWEtaChecker
             _singleInstance = new Mutex(true, "TWEtaChecker.SingleInstance", out bool createdNew);
             if (!createdNew)
             {
-                MessageBox.Show("TW 에타 체커가 이미 실행 중입니다. 트레이 아이콘을 두 번 눌러 창을 여세요.", Caption, MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("TW 에타 알림이 이미 실행 중입니다. 트레이 아이콘을 두 번 눌러 창을 여세요.", Caption, MessageBoxButton.OK, MessageBoxImage.Information);
                 Shutdown();
                 return;
             }
@@ -66,7 +66,7 @@ namespace TWEtaChecker
 
             Watcher.Start();
 
-            _tray = new TrayIconService("TW 에타 체커 — 1:1 대화 에타 확인", new List<TrayIconService.MenuItem>
+            _tray = new TrayIconService("TW 에타 알림 — 1:1 대화 에타 확인", new List<TrayIconService.MenuItem>
             {
                 new("종료", () => Shutdown()),
             });
